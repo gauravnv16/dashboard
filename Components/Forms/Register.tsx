@@ -6,6 +6,7 @@ import { InputComponent } from "./Components/InputComponent";
 import { FormBlueButton } from "./Components/ButtonComponent";
 import Link from "next/link";
 import { FileUpload } from "../Files/FileUpload";
+import { FormHandler } from "./Utils/FormHandler";
 
 export default function Register() {
   const username = useRef("");
@@ -13,7 +14,8 @@ export default function Register() {
   const email = useRef("");
   const confirmPassword = useRef("");
   const img_url = useRef("");
-  const [error, setError] = useState("Upload error");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const InputFields: InputProps[] = [
     {
@@ -62,12 +64,30 @@ export default function Register() {
         style={{
           width: "500px",
         }}
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          setLoading(true);
+          
+          FormHandler({
+            type: "register",
+            user: {
+              username: username.current,
+              email: email.current,
+              password: password.current,
+              img_url: img_url.current,
+            },
+          });
+        }}
       >
         <h3 className="text-xl">Welcome,</h3>
         <h4 className="text-sm">Create Account!!</h4>
-        {
-            error != "" ? <p className="bg-red-500 font-bold text-black w-fit px-3 py-1 my-3 rounded-md text-xs">{error}</p> : ""
-        }
+        {error != "" ? (
+          <p className="bg-red-500 font-bold text-black w-fit px-3 py-1 my-3 rounded-md text-xs">
+            {error}
+          </p>
+        ) : (
+          ""
+        )}
         {InputFields.map((input, index) => {
           return <InputComponent key={index} {...input} />;
         })}
@@ -81,8 +101,9 @@ export default function Register() {
           text="Register"
           icon=""
           id="register"
+          loading={loading}
           onCLick={() => {
-            console.log("Register");
+            
           }}
         ></FormBlueButton>
 

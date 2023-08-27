@@ -1,3 +1,4 @@
+import { Loader } from "@/Components/Loader/Loader";
 import { ButtonProps } from "@/Types/Types";
 
 export const FormBlueButton = (props: ButtonProps) => {
@@ -8,7 +9,7 @@ export const FormBlueButton = (props: ButtonProps) => {
       id={props.id}
     >
       {props.icon != "" ? <i className={props.icon}></i> : ""}
-      {props.text}
+      { props.loading ? <Loader/> : props.text }
     </button>
   );
 };
