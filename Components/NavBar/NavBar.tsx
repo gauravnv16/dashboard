@@ -20,6 +20,9 @@ export const BlueButton = (props: ButtonProps) => {
   );
 };
 
+
+
+
 export default function NavBar() {
   const pages: PageProps[] = [
     { name: "Home", href: "/" },
@@ -70,8 +73,9 @@ export default function NavBar() {
         </ul>
         <BlueButton
           text="Account"
+          href="/account"
           onCLick={() => {
-            window.location.href = "/account";
+            window.location.href = "/login";
           }}
           icon=""
           id="accountBtn"

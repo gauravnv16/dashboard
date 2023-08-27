@@ -18,8 +18,9 @@ export type ButtonProps = {
   text: string;
   icon: string;
   loading?: boolean;
+  href?: string;
   id: string;
-  onCLick: () => void;
+  onCLick?: () => void;
 };
 
 export type InputProps = {
