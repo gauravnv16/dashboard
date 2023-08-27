@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { ButtonProps, PageProps } from "@/Types/Types";
 import "./css/style.css";
-import gear from '../../public/gear.png'
+import gear from "../../public/gear.png";
 
 export const BlueButton = (props: ButtonProps) => {
   return (
@@ -42,9 +42,15 @@ export default function NavBar() {
     >
       <section className="flex items-center justify-between">
         <h1 className="text-sm flex items-center">
-            <Image src={gear} alt="Gear" width={30} height={30} className="mr-2" />
-            Gaurav's App Service
-            </h1>
+          <Image
+            src={gear}
+            alt="Gear"
+            width={30}
+            height={30}
+            className="mr-2"
+          />
+          {"Gaurav's App Service"}
+        </h1>
         <BlueButton
           icon="fas fa-bars"
           onCLick={ToggleNav}
