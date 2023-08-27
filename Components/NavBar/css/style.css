@@ -1,0 +1,30 @@
+/* movedown animation */
+@keyframes movedown {
+    from {
+        top: -50px;
+    }
+    to {
+        top: 0px;
+    }
+}
+#menuBtn{
+    display: none;
+}
+@media screen and (max-width: 500px) {
+    #nav{
+        display: block;
+    }
+    #navlinks2,#navlinks2 ul{
+        display: block;
+    }
+    #navlinks2{
+        display: none;
+        animation: movedown 0.5s ease-in-out;
+    }
+    #navlinks2 ul li{
+        margin: 20px 0px;
+    }
+    #menuBtn{
+        display: block;
+    }
+}

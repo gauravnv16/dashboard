@@ -1,3 +1,4 @@
+import NavBar from "@/Components/NavBar/NavBar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -25,7 +26,10 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + " bg-slate-900"}>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
